@@ -122,8 +122,7 @@ g1 <- ggplot(tracklist, aes(x = danceability,
         axis.title.y = element_blank()) +
   geom_vline(aes(xintercept = median(danceability)), linetype = "dashed")
 ```
-```{r, echo=FALSE}
-knitr::include_graphics('https://github.com/matthewpaley/Spotify2/tree/master/images/Danceability.jpeg')
+```{r echo=FALSE, fig.align='center', fig.cap='', out.width='100%'}knitr::include_graphics('https://github.com/matthewpaley/Spotify2/tree/master/images/Danceability.jpeg')
 ```
 Right away we can see a trend. Music has been increasaing in danceability pretty steadily each decade. I wonder what trends we can with the other features? 
 
@@ -227,7 +226,7 @@ plot <- annotate_figure(plot,
                                            hjust = 1.5, x = 1, face = "italic", size = 10))
 ```
 
-```{r, echo=FALSE}
-knitr::include_graphics('https://github.com/matthewpaley/Spotify2/tree/master/images/All%20Feature.jpeg')
+```{r echo=FALSE, fig.align='center', fig.cap='', out.width='100%'}
+knitr::include_graphics('https://github.com/matthewpaley/Spotify2/tree/master/images/All%20Features.jpeg')
 ```
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
