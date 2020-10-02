@@ -109,11 +109,11 @@ Now that our features are ready to go, it's time to get plotting. We'll start by
             axis.title.y = element_blank()) +
       geom_vline(aes(xintercept = median(danceability)), linetype = "dashed")
 
-<img src="https://github.com/matthewpaley/Spotify2/tree/master/images/danceability.png" width="100%" style="display: block; margin: auto;" />
+<img src="https://github.com/matthewpaley/Spotify2/blob/master/images/danceability.png" width="100%" style="display: block; margin: auto;" />
 
-![danceability]('https://github.com/matthewpaley/Spotify2/tree/master/images/danceability.png'?raw=true)
+![danceability](https://github.com/matthewpaley/Spotify2/blob/master/images/danceability.png)
 
-Right away we can see a trend. Music has been increasaing in danceability pretty steadily each decade. I wonder what trends we can with the other features?
+Right away we can see a trend. Music has been increasing in danceability pretty steadily each decade. I wonder what trends we can with the other features?
 
     # Energy
     g2 <- ggplot(tracklist, aes(x = energy, 

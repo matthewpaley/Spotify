@@ -124,12 +124,12 @@ g1 <- ggplot(tracklist, aes(x = danceability,
 ```
 
 ```{r echo=FALSE, fig.align='center', fig.cap='', out.width='100%'}
-knitr::include_graphics('https://github.com/matthewpaley/Spotify2/tree/master/images/danceability.png')
+knitr::include_graphics('https://github.com/matthewpaley/Spotify2/blob/master/images/danceability.png')
 ```
 
-![danceability]('https://github.com/matthewpaley/Spotify2/tree/master/images/danceability.png'?raw=true)
+![danceability](https://github.com/matthewpaley/Spotify2/blob/master/images/danceability.png)
 
-Right away we can see a trend. Music has been increasaing in danceability pretty steadily each decade. I wonder what trends we can with the other features? 
+Right away we can see a trend. Music has been increasing in danceability pretty steadily each decade. I wonder what trends we can with the other features? 
 
 ```
 # Energy
