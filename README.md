@@ -109,7 +109,11 @@ Now that our features are ready to go, it's time to get plotting. We'll start by
             axis.title.y = element_blank()) +
       geom_vline(aes(xintercept = median(danceability)), linetype = "dashed")
 
-`{r echo=FALSE, fig.align='center', fig.cap='', out.width='100%'}knitr::include_graphics('https://github.com/matthewpaley/Spotify2/tree/master/images/Danceability.jpeg')` Right away we can see a trend. Music has been increasaing in danceability pretty steadily each decade. I wonder what trends we can with the other features?
+<img src="https://github.com/matthewpaley/Spotify2/tree/master/images/danceability.png" width="100%" style="display: block; margin: auto;" />
+
+![danceability]('https://github.com/matthewpaley/Spotify2/tree/master/images/danceability.png'?raw=true)
+
+Right away we can see a trend. Music has been increasaing in danceability pretty steadily each decade. I wonder what trends we can with the other features?
 
     # Energy
     g2 <- ggplot(tracklist, aes(x = energy, 
@@ -207,4 +211,4 @@ Once all plots have been created, we can combine them together to get the full p
                             bottom = text_grob("Created by Matthew Paley",
                                                hjust = 1.5, x = 1, face = "italic", size = 10))
 
-<img src="https://github.com/matthewpaley/Spotify2/tree/master/images/All%20Features.jpeg" width="100%" style="display: block; margin: auto;" /> Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+<img src="https://github.com/matthewpaley/Spotify2/tree/master/images/all_features.png" width="100%" style="display: block; margin: auto;" /> Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
