@@ -109,8 +109,6 @@ Now that our features are ready to go, it's time to get plotting. We'll start by
             axis.title.y = element_blank()) +
       geom_vline(aes(xintercept = median(danceability)), linetype = "dashed")
 
-<img src="https://github.com/matthewpaley/Spotify2/blob/master/images/danceability.png" width="100%" style="display: block; margin: auto;" />
-
 ![danceability](https://github.com/matthewpaley/Spotify2/blob/master/images/danceability.png)
 
 Right away we can see a trend. Music has been increasing in danceability pretty steadily each decade. I wonder what trends we can with the other features?
@@ -211,4 +209,66 @@ Once all plots have been created, we can combine them together to get the full p
                             bottom = text_grob("Created by Matthew Paley",
                                                hjust = 1.5, x = 1, face = "italic", size = 10))
 
-<img src="https://github.com/matthewpaley/Spotify2/tree/master/images/all_features.png" width="100%" style="display: block; margin: auto;" /> Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+![all\_features](https://github.com/matthewpaley/Spotify2/tree/master/images/all_features.png)
+
+Pretty cool! The biggest trends that jump out to me are an increase in danceability and loudness, and a decrease in acousticness. As someone who definitely prefers older music to newer music, I can't say I'm surprised by this.
+
+Step 5: Interactive Plot
+------------------------
+
+One really cool thing we can do with the help of the `plotly` package is create an interactive plot, where we can actually hear a preview of the songs. First, I selected the 250 most popular songs from our tracklist, just so the plot doesn't become too overwhelmed with data points. (<https://rpubs.com/mjpaley10/spotify>)
+
+    # Select the 250 most popular songs in tracklist
+    top250 <- tlist %>% 
+      arrange(-track.popularity) %>% 
+      slice_head(n=250)
+
+Next, I plotted the data with energy on the x-axis, and valence on the y-axis. These were variables found to have a moderate positive correlation in an earlier step. Also, I used the text aesthetic to create a text box that appears on hover. It shows the track name, artist, playlist name, and the length of the song in mm:ss formatting.
+
+Lastly, we're depending on the `track.preview_url` for our song previews. Unfortunately, Spotify doesn't provide them for every song, so I noted in the text aesthetic whether or not the preview was available.
+
+    # Plot   
+    p <- ggplot(top250,  aes(energy, 
+                             valence,
+                             colour = pnum,
+                             text = paste0("Song: ", track.name, 
+                                           "\nArtist: ", artist,
+                                           "\nPlaylist: ", playlist_name, 
+                                           "\nLength: ", paste0(
+                                             ifelse(floor(track.length) < 10,
+                                                    paste0("0",floor(track.length)),
+                                                    floor(track.length)), ":",
+                                             ceiling(track.length[1] %% 1*60)),
+                                           ifelse(is.na(track.preview_url),
+                                                  "\nPreview Unavailable",
+                                                  "\nClick for Preview")))) + 
+      geom_point() + 
+      labs(
+        title = "Data You Can Hear",
+        subtitle = "Click a point to hear the song!") + 
+      theme(legend.position = "none")
+
+    p1 <- ggplotly(p, tooltip="text") %>%
+      layout(title = list(text = paste0('Data You Can Hear',
+                                        '<br>',
+                                        '<sup>',
+                                        'Click on a point to listen to a song preview!',
+                                        '</sup>'),
+             x = .47))
+
+    p1$x$data[[1]]$customdata <- top250$track.preview_url
+
+    p2 <- onRender(p1, "
+                   function(el, x) {
+                   el.on('plotly_click', function(d) {
+                   var url = d.points[0].customdata;
+                   //url
+                   window.open(url);
+                   });
+                   }
+                   ")
+
+<!--html_preserve-->
+<iframe title="My embedded document" src="https://github.com/matthewpaley/Spotify2/blob/master/images/song_preview_plot.html?raw=true">
+</iframe>
+<!--/html_preserve-->

@@ -289,5 +289,5 @@ p2 <- onRender(p1, "
 ```
 
 ```{r, echo=FALSE}
-htmltools::includeHTML("https://github.com/matthewpaley/Spotify2/blob/master/images/song_preview_plot.html")
+htmltools::tags$iframe(title = "My embedded document", src = 'https://github.com/matthewpaley/Spotify2/blob/master/images/song_preview_plot.html?raw=true')
 ```
