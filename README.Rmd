@@ -232,7 +232,7 @@ Pretty cool! The biggest trends that jump out to me are an increase in danceabil
 
 ## Step 5: Interactive Plot
 
-One really cool thing we can do with the help of the `plotly` package is create an interactive plot, where we can actually hear a preview of the songs. First, I selected the 250 most popular songs from our tracklist, just so the plot doesn't become too overwhelmed with data points. (https://rpubs.com/mjpaley10/spotify)
+One really cool thing we can do with the help of the `plotly` package is create an interactive plot, where we can actually hear a preview of the songs. First, I selected the 250 most popular songs from our tracklist, just so the plot doesn't become too overwhelmed with data points. 
 
 ```
 # Select the 250 most popular songs in tracklist
@@ -243,7 +243,7 @@ top250 <- tlist %>%
 
 Next, I plotted the data with energy on the x-axis, and valence on the y-axis. These were variables found to have a moderate positive correlation in an earlier step. Also, I used the text aesthetic to create a text box that appears on hover. It shows the track name, artist, playlist name, and the length of the song in mm:ss formatting.
 
-Lastly, we're depending on the `track.preview_url` for our song previews. Unfortunately, Spotify doesn't provide them for every song, so I noted in the text aesthetic whether or not the preview was available.
+Lastly, we're depending on the `track.preview_url` for our song previews. Unfortunately, Spotify doesn't provide them for every song, so I noted in the text aesthetic whether or not the preview was available. See the plot [here] (https://rpubs.com/mjpaley10/spotify).
 
 ```
 # Plot   
@@ -288,6 +288,3 @@ p2 <- onRender(p1, "
                ")
 ```
 
-```{r, echo=FALSE}
-# htmltools::includeHTML('https://github.com/matthewpaley/Spotify/blob/master/images/song_preview_plot.html')
-```
