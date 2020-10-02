@@ -40,25 +40,18 @@ for(i in 1:nrow(playlists)) {
 
 tracklist <- do.call(rbind, tracklist) 
 
-tracklist <- tracklist %>% mutate(
-  case_when(playlist_name == 'Today\'s Top Hits' ~ 7,
-            playlist_name == 'All Out 10s' ~ 6,
-            playlist_name == 'All Out 00s' ~ 5,
-            playlist_name == 'All Out 90s' ~ 4,
-            playlist_name == 'All Out 80s' ~ 3,
-            playlist_name == 'All Out 70s' ~ 2, 
-            playlist_name == 'All Out 60s' ~ 1)
-)
+tracklist <- tracklist %>% 
+  mutate( pnum = 
+    case_when(playlist_name == 'Today\'s Top Hits' ~ 7,
+              playlist_name == 'All Out 10s' ~ 6,
+              playlist_name == 'All Out 00s' ~ 5,
+              playlist_name == 'All Out 90s' ~ 4,
+              playlist_name == 'All Out 80s' ~ 3,
+              playlist_name == 'All Out 70s' ~ 2, 
+              playlist_name == 'All Out 60s' ~ 1
+    )
+  ) %>% arrange(pnum)
 
-# Add column to sort playlists in chronological order
-tracklist$pnum <- NA
-tracklist$pnum <- with(tracklist,
-                       ifelse(playlist_name == 'Today\'s Top Hits', 7,
-                              ifelse(playlist_name == 'All Out 10s', 6,
-                                     ifelse(playlist_name == 'All Out 00s', 5,
-                                            ifelse(playlist_name == 'All Out 90s', 4,
-                                                   ifelse(playlist_name == 'All Out 80s', 3,
-                                                          ifelse(playlist_name == 'All Out 70s', 2, 1)))))))
 
 # Get feature means
 tracks_avg <- tracklist %>%

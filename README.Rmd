@@ -122,10 +122,11 @@ g1 <- ggplot(tracklist, aes(x = danceability,
         axis.title.y = element_blank()) +
   geom_vline(aes(xintercept = median(danceability)), linetype = "dashed")
 ```
-```{r g1, echo=FALSE}
-g1
+```{r, echo=FALSE}
+knitr::include_graphics('https://github.com/matthewpaley/Spotify2/tree/master/images/Danceability.jpeg')
 ```
 Right away we can see a trend. Music has been increasaing in danceability pretty steadily each decade. I wonder what trends we can with the other features? 
+
 ```
 # Energy
 g2 <- ggplot(tracklist, aes(x = energy, 
@@ -209,9 +210,10 @@ g9 <- ggplot(tracklist, aes(x = tempo,
   theme(legend.position = "none",
         axis.title.y = element_blank()) +
   geom_vline(aes(xintercept = median(tempo)), linetype = "dashed")
-  ```
+```
 
 Once all plots have been created, we can combine them together to get the full picture.
+
 ```
 # Combine all plots into one
 plot <- ggarrange(g1, g2, g3, g4, g5, g6, g7, g8, g9) 
@@ -224,7 +226,8 @@ plot <- annotate_figure(plot,
                         bottom = text_grob("Created by Matthew Paley",
                                            hjust = 1.5, x = 1, face = "italic", size = 10))
 ```
-```{r plot, echo=FALSE}
-plot
+
+```{r, echo=FALSE}
+knitr::include_graphics('https://github.com/matthewpaley/Spotify2/tree/master/images/All%20Feature.jpeg')
 ```
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
