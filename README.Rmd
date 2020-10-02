@@ -123,7 +123,7 @@ g1 <- ggplot(tracklist, aes(x = danceability,
   geom_vline(aes(xintercept = median(danceability)), linetype = "dashed")
 ```
 
-![danceability](https://github.com/matthewpaley/Spotify2/blob/master/images/danceability.png)
+![danceability](https://github.com/matthewpaley/Spotify/blob/master/images/danceability.png)
 
 Right away we can see a trend. Music has been increasing in danceability pretty steadily each decade. I wonder what trends we can with the other features? 
 
@@ -226,7 +226,7 @@ plot <- annotate_figure(plot,
                         bottom = text_grob("Created by Matthew Paley",
                                            hjust = 1.5, x = 1, face = "italic", size = 10))
 ```
-![all_features](https://github.com/matthewpaley/Spotify2/tree/master/images/all_features.png)
+![all_features](https://github.com/matthewpaley/Spotify/blob/master/images/all_features.png)
 
 Pretty cool! The biggest trends that jump out to me are an increase in danceability and loudness, and a decrease in acousticness. As someone who definitely prefers older music to newer music, I can't say I'm surprised by this.
 
@@ -289,5 +289,5 @@ p2 <- onRender(p1, "
 ```
 
 ```{r, echo=FALSE}
-htmltools::tags$iframe(title = "My embedded document", src = 'https://github.com/matthewpaley/Spotify2/blob/master/images/song_preview_plot.html?raw=true')
+# htmltools::includeHTML('https://github.com/matthewpaley/Spotify/blob/master/images/song_preview_plot.html')
 ```

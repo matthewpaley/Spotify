@@ -109,7 +109,7 @@ Now that our features are ready to go, it's time to get plotting. We'll start by
             axis.title.y = element_blank()) +
       geom_vline(aes(xintercept = median(danceability)), linetype = "dashed")
 
-![danceability](https://github.com/matthewpaley/Spotify2/blob/master/images/danceability.png)
+![danceability](https://github.com/matthewpaley/Spotify/blob/master/images/danceability.png)
 
 Right away we can see a trend. Music has been increasing in danceability pretty steadily each decade. I wonder what trends we can with the other features?
 
@@ -209,7 +209,7 @@ Once all plots have been created, we can combine them together to get the full p
                             bottom = text_grob("Created by Matthew Paley",
                                                hjust = 1.5, x = 1, face = "italic", size = 10))
 
-![all\_features](https://github.com/matthewpaley/Spotify2/tree/master/images/all_features.png)
+![all\_features](https://github.com/matthewpaley/Spotify/blob/master/images/all_features.png)
 
 Pretty cool! The biggest trends that jump out to me are an increase in danceability and loudness, and a decrease in acousticness. As someone who definitely prefers older music to newer music, I can't say I'm surprised by this.
 
@@ -267,8 +267,3 @@ Lastly, we're depending on the `track.preview_url` for our song previews. Unfort
                    });
                    }
                    ")
-
-<!--html_preserve-->
-<iframe title="My embedded document" src="https://github.com/matthewpaley/Spotify2/blob/master/images/song_preview_plot.html?raw=true">
-</iframe>
-<!--/html_preserve-->
