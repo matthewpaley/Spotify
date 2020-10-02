@@ -233,7 +233,8 @@ p1 <- ggplotly(p, tooltip="text") %>%
                                     '<br>',
                                     '<sup>',
                                     'Click on a point to listen to a song preview!',
-                                    '</sup>')))
+                                    '</sup>'),
+         x = .47))
 
 p1$x$data[[1]]$customdata <- top250$track.preview_url
 
