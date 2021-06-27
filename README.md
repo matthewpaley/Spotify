@@ -8,7 +8,9 @@ In this blog I will demonstrate how I used the R programming language and the sp
 
 To get your Spotify credentials, you need to create a Spotify developer account and set up an app [here](https://developer.spotify.com/my-applications/#!/applications).
 
-From there, you will get your `CLIENT_ID` and `CLIENT_SECRET`. Make note of these, as they will be needed in your code soon. Also, make sure to set your app's **Redirect URI** to `http://localhost:1410/`. Certain functions in the `spotifyr` package require you to be logged in as a Spotify user, and this allows you to do that. Now that we're all setup in Spotify, let's start working in R. Lastly, you will need your numeric username, which can be found [here](https://www.spotify.com/us/account/overview/).
+From there, you will get your `CLIENT_ID` and `CLIENT_SECRET`. Make note of these, as they will be needed in your code soon. Also, make sure to set your app's **Redirect URI** to `http://localhost:1410/`. Certain functions in the `spotifyr` package require you to be logged in as a Spotify user, and this allows you to do that. Lastly, you will need your numeric username, which can be found [here](https://www.spotify.com/us/account/overview/).
+
+Now that we're all setup in Spotify, let's start working in R. 
 
 ### Step 2: Load Your Libraries
 
